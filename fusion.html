@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fusionner des fichiers</title>
+</head>
+<body>
+    <h2>Fusionner des fichiers du même type</h2>
+    <form action="fusionner.php" method="post" enctype="multipart/form-data">
+        <label for="files">Sélectionnez des fichiers:</label>
+        <input type="file" name="files[]" id="files" multiple>
+        <input type="submit" value="Fusionner">
+    </form>
+</body>

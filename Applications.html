@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facture</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+   
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .total {
+            font-weight: bold;
+        }
+        h1, h2 {
+            margin-bottom: 10px;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+        .nav {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+        .nav-item {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .nav-link {
+            text-decoration: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .nav-link:hover {
+            background-color: #555;
+        }
+        section {
+            padding: 60px 0;
+        }
+        section .section-title {
+            text-align: center;
+            color: #007b5e;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+        #footer {
+            background: #007b5e !important;
+            padding: 30px 0;
+            color: #ffffff;
+        }
+        #footer h5 {
+            padding-left: 10px;
+            border-left: 3px solid #eeeeee;
+            padding-bottom: 6px;
+            margin-bottom: 20px;
+        }
+        #footer a {
+            color: #ffffff;
+            text-decoration: none !important;
+        }
+        #footer ul.social li {
+            padding: 3px 0;
+        }
+        #footer ul.social li a i {
+            margin-right: 5px;
+            font-size: 25px;
+            transition: .5s all ease;
+        }
+        #footer ul.social li:hover a i {
+            font-size: 30px;
+            margin-top: -10px;
+        }
+        #footer ul.quick-links li {
+            padding: 3px 0;
+        }
+        #footer ul.quick-links li:hover {
+            margin-left: 5px;
+            font-weight: 700;
+        }
+        @media (max-width: 767px) {
+            #footer h5 {
+                padding-left: 0;
+                border-left: transparent;
+                padding-bottom: 0px;
+                margin-bottom: 10px;
+            }
+        }
+        .cta-100 {
+            margin-top: 100px;
+            padding-left: 8%;
+            padding-top: 7%;
+            align-items: center;
+        }
+        .col-md-4 {
+            padding-bottom: 20px;
+        }
+        .white {
+            color: #fff !important;
+        }
+        .mt { 
+            float: left;
+            margin-top: -20px;
+            padding-top: 20px;
+        }
+        .bg-blue-ui {
+            background-color: #708198 !important;
+        }
+        figure img {
+            width: 300px;
+        }
+        #blogCarousel {
+            padding-bottom: 100px;
+        }
+        .blog .carousel-indicators {
+            left: 0;
+            top: -50px;
+            height: 50%;
+        }
+        .blog .carousel-indicators li {
+            background: #708198;
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+        }
+        .blog .carousel-indicators .active {
+            background: #0fc9af;
+        }
+        .item-carousel-blog-block {
+            outline: medium none;
+            padding: 15px;
+        }
+        .item-box-blog {
+            border: 1px solid #dadada;
+            text-align: center;
+            z-index: 4;
+            padding: 20px;
+        }
+        .item-box-blog-image {
+            position: relative;
+        }
+        .item-box-blog-image figure img {
+            width: 100%;
+            height: auto;
+        }
+        .item-box-blog-date {
+            position: absolute;
+            z-index: 5;
+            padding: 4px 20px;
+            top: -20px;
+            right: 8px;
+            background-color: #41cb52;
+        }
+        .item-box-blog-date span {
+            color: #fff;
+            display: block;
+            text-align: center;
+            line-height: 1.2;
+        }
+        .item-box-blog-date span.mon {
+            font-size: 18px;
+        }
+        .item-box-blog-date span.day {
+            font-size: 16px;
+        }
+        .item-box-blog-body {
+            padding: 10px;
+        }
+        .item-heading-blog a h5 {
+            margin: 0;
+            line-height: 1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .item-box-blog-heading a {
+            text-decoration: none;
+        }
+        .item-box-blog-data p {
+            font-size: 13px;
+        }
+        .item-box-blog-data p i {
+            font-size: 12px;
+        }
+        .item-box-blog-text {
+            max-height: 150px;
+            overflow: auto;
+        }
+        .mt-10 {
+            float: left;
+            margin-top: -10px;
+            padding-top: 10px;
+        }
+        .btn.bg-blue-ui.white.read {
+            cursor: pointer;
+            padding: 4px 20px;
+            float: left;
+            margin-top: 10px;
+        }
+        .btn.bg-blue-ui.white.read:hover {
+            box-shadow: 0px 5px 15px inset #4d5f77;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <ul class="nav justify-content-center">
+                <li class="nav-item"><a class="nav-link" href="Acceuil.html">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="Infos.html">Infos</a></li>
+                <li class="nav-item"><a class="nav-link" href="Services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="Applications.html">Applications</a></li>
+            </ul>
+        </nav>
+    </header>
+       
+      <div class="container cta-100 ">
+        <div class="container">
+          <div class="row blog">
+            <div class="col-md-12">
+              <div id="blogCarousel" class="carousel slide container-blog" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#blogCarousel" data-slide-to="1"></li>
+                </ol>
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="row">
+                      <div class="col-md-4" >
+                        <div class="item-box-blog">
+                          <div class="item-box-blog-image">
+                           
+                            <!--Image-->
+                            <figure> <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg"> </figure>
+                          </div>
+                          <div class="item-box-blog-body">
+                            <!--Heading-->
+                            <div class="item-box-blog-heading">
+                              <a href="#" tabindex="0">
+                                <h5>Découvrir</h5>
+                              </a>
+                            </div>
+                            <!--Data-->
+                            <div class="item-box-blog-data" style="padding: px 15px;">
+                              <p> <i class="fa fa-comments-o"></i> Convertir un fichier txttab à un fichier CSV</p>
+                            </div>
+                            <!--Text-->
+                            <div class="item-box-blog-text">
+                              <p> Les fichiers TXT tabulés utilisent des tabulations (\t) pour séparer les colonnes, tandis que les fichiers CSV utilisent des virgules (,) ou parfois d'autres délimiteurs comme le point-virgule.</p>
+                            </div>
+                            <div class="mt"> <a href="Txttab2CSV.html" tabindex="0" class="btn bg-blue-ui white read">Txttab to CSV</a> </div>
+                            <!--Read More Button-->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4" >
+                        <div class="item-box-blog">
+                          <div class="item-box-blog-image">
+                            <!--Date-->
+                           
+                            <!--Image-->
+                            <figure> <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg"> </figure>
+                          </div>
+                          <div class="item-box-blog-body">
+                            <!--Heading-->
+                            <div class="item-box-blog-heading">
+                              <a href="#" tabindex="0">
+                                <h5>Découvrir</h5>
+                              </a>
+                            </div>
+                            <!--Data-->
+                            <div class="item-box-blog-data" style="padding: px 15px;">
+                              <p><i class="fa fa-comments-o"></i> Permutation des fichier </p>
+                            </div>
+                            <!--Text-->
+                            <div class="item-box-blog-text">
+                              <p>La permutation des fichiers est un processus consistant à échanger les noms ou les emplacements de deux fichiers. Cette opération peut être utile dans diverses situations, telles que l'organisation de fichiers, la gestion de versions, ou la mise en place de sauvegardes.</p>
+                            </div>
+                            <div class="mt"> <a href="permutation.html" tabindex="0" class="btn bg-blue-ui white read">permutation</a> </div>
+                            <!--Read More Button-->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4" >
+                        <div class="item-box-blog">
+                          <div class="item-box-blog-image">
+                            <!--Date-->
+                           
+                            <!--Image-->
+                            <figure> <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg"> </figure>
+                          </div>
+                          <div class="item-box-blog-body">
+                            <!--Heading-->
+                            <div class="item-box-blog-heading">
+                              <a href="#" tabindex="0">
+                                <h5>Découvrir</h5>
+                              </a>
+                            </div>
+                            <!--Data-->
+                            <div class="item-box-blog-data" style="padding: px 15px;">
+                              <p> <i class="fa fa-comments-o"></i> Nettoyage des fichiers </p>
+                            </div>
+                            <!--Text-->
+                            <div class="item-box-blog-text">
+                              <p>Le nettoyage des fichiers est une opération essentielle dans la gestion des données. Elle vise à s'assurer que les fichiers sont exempts de données inutiles, redondantes, ou incorrectes, améliorant ainsi leur qualité et facilitant leur utilisation ultérieure.</p>
+                            </div>
+                            <div class="mt"> <a href="nettoyage.html" tabindex="0" class="btn bg-blue-ui white read">nettoyage</a> </div>
+                            <!--Read More Button-->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--.row-->
+                  </div>
+                  <!--.item-->
+                  <div class="carousel-item ">
+                    <div class="row">
+                      <div class="col-md-4" >
+                        <div class="item-box-blog">
+                          <div class="item-box-blog-image">
+                            <!--Date-->
+                            
+                            <!--Image-->
+                            <figure> <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg"> </figure>
+                          </div>
+                          <div class="item-box-blog-body">
+                            <!--Heading-->
+                            <div class="item-box-blog-heading">
+                              <a href="#" tabindex="0">
+                                <h5>Découvrir</h5>
+                              </a>
+                            </div>
+                            <!--Data-->
+                            <div class="item-box-blog-data" style="padding: px 15px;">
+                              <p> <i class="fa fa-comments-o"></i> Fusion des fichier de meme type</p>
+                            </div>
+                            <!--Text-->
+                            <div class="item-box-blog-text">
+                              <p>La fusion des fichiers de même type est une opération courante dans la gestion des données, consistant à combiner plusieurs fichiers en un seul. Cette technique est utile pour consolider des données dispersées, faciliter leur analyse, ou simplifier leur stockage.</p>
+                            </div>
+                            <div class="mt"> <a href="fusion.html" tabindex="0" class="btn bg-blue-ui white read">fusion</a> </div>
+                            <!--Read More Button-->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4" >
+                        <div class="item-box-blog">
+                          <div class="item-box-blog-image">
+                            <!--Date-->
+                            
+                            <!--Image-->
+                            <figure> <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg"> </figure>
+                          </div>
+                          <div class="item-box-blog-body">
+                            <!--Heading-->
+                            <div class="item-box-blog-heading">
+                              <a href="#" tabindex="0">
+                                <h5>Découvrir</h5>
+                              </a>
+                            </div>
+                            <!--Data-->
+                            <div class="item-box-blog-data" style="padding: px 15px;">
+                              <p> <i class="fa fa-comments-o"></i> Convertir un fichier CSV à un fichier TxtTab</p>
+                            </div>
+                            <!--Text-->
+                            <div class="item-box-blog-text">
+                              <p>La conversion d'un fichier CSV en un fichier TXT tabulé (TxtTab) est une opération courante dans la gestion des données, permettant de passer d'un format de données séparées par des virgules à un format de données séparées par des tabulations. Cette conversion est souvent nécessaire pour satisfaire les exigences de certains systèmes ou applications qui préfèrent ou nécessitent des données tabulées.</p>
+                            </div>
+                            <div class="mt"> <a href="CSV2TXTtab.html" tabindex="0" class="btn bg-blue-ui white read">CSV to txt tab</a> </div>
+                            <!--Read More Button-->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4" >
+                        <div class="item-box-blog">
+                          <div class="item-box-blog-image">
+                            <!--Date-->
+                         
+                            <!--Image-->
+                            <figure> <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg"> </figure>
+                          </div>
+                          <div class="item-box-blog-body">
+                            <!--Heading-->
+                            <div class="item-box-blog-heading">
+                              <a href="#" tabindex="0">
+                                <h5>Découvrir</h5>
+                              </a>
+                            </div>
+                            <!--Data-->
+                            <div class="item-box-blog-data" style="padding: px 15px;">
+                              <p><i class="fa fa-comments-o"></i>Convertir un fichier Dat à un fichier CSV</p>
+                            </div>
+                            <!--Text-->
+                            <div class="item-box-blog-text">
+                              <p>La conversion d'un fichier DAT en un fichier CSV est souvent nécessaire lorsqu'on souhaite utiliser les données contenues dans un format plus accessible et largement supporté comme le CSV (Comma-Separated Values). Les fichiers DAT peuvent contenir des données structurées de manière spécifique qui doivent être extraites et reformatées pour être utilisées efficacement dans des applications courantes de traitement de données.</p>
+                            </div>
+                             <div class="mt"> <a href="dat2CSV.html" tabindex="0" class="btn bg-blue-ui white read">dat to csv</a> </div>
+                            <!--Read More Button-->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--.row-->
+                  </div>
+                  <!--.item-->
+                </div>
+                <!--.carousel-inner-->
+              </div>
+              <!--.Carousel-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- Footer -->
+    <section id="footer">
+        <div class="container">
+            <div class="row text-center text-xs-center text-sm-left text-md-left">
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <h5>Sommaire </h5>
+                    <ul class="list-unstyled quick-links">
+                        <li><a href="Acceuil.html"><i class="fa fa-angle-double-right"></i>Acceuil</a></li>
+                        <li><a href="Infos.html"><i class="fa fa-angle-double-right"></i>Infos</a></li>
+                        <li><a href="Services.html"><i class="fa fa-angle-double-right"></i>Services</a></li>
+                        <li><a href="Applications.html"><i class="fa fa-angle-double-right"></i>Aplications</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-xs-12 col-sm-4 col-md-4 text-white">
+                    <h5>Quick links</h5>
+                    <ul class="list-unstyled quick-links">
+                       <li><i class="fa fa-map-marker f" ></i>Rue El Zellaqa n°20A Al Hoceima 32000</a></li>
+                        <li><i class="fa fa-phone"></i>0708966094 / 0808578437</a></li>
+                        <li><i class="fa fa-envelope"></i>microtopographie@gmail.com</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4  text-white">
+                    <h5>À propos</h5>
+                   <p> Sociétés spécialisées dans la collecte, la mesure et la représentation des données géospatiales.</p>
+                   <p> Création : 2023 </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                    <ul class="list-unstyled list-inline social text-center">
+                      <li class="list-inline-item"><a href="https://www.facebook.com/microtopographie"><i class="fa fa-facebook"></i></a></li>
+                      <li class="list-inline-item"><a href=""><i class="fa fa-twitter"></i></a></li>
+                      <li class="list-inline-item"><a href="https://www.instagram.com/microtopographie"><i class="fa fa-instagram"></i></a></li>
+                      <li class="list-inline-item"><a href="https://ma.linkedin.com/company/microtopographie2"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                    <p class="h6">© All right Reversed.</p>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </section>
+    <!-- ./Footer -->
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permutation des lignes des fichiers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .form-container input[type="file"] {
+            display: block;
+            margin-bottom: 20px;
+        }
+        .form-container input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #555;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Permutation des lignes des fichiers</h2>
+        <form action="permute.php" method="post" enctype="multipart/form-data">
+            <label for="file">Sélectionnez un fichier :</label>
+            <input type="file" name="file" id="file" required>
+            <input type="submit" value="Permuter">
+        </form>
+    </div>
+</body>
+</html>

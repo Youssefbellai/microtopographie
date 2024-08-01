@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande de devis</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <style>
+        /* Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+        .nav {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+        .nav-item {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .nav-link {
+            text-decoration: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .nav-link:hover {
+            background-color: #555;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #1E5AA7;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], textarea, select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-radio-group {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .form-radio-group label {
+            margin-right: 15px;
+            font-weight: normal;
+        }
+        .form-radio-group input {
+            margin-right: 5px;
+        }
+        .form-group-half {
+            width: 48%;
+            display: inline-block;
+        }
+        .form-group-half + .form-group-half {
+            margin-left: 4%;
+        }
+        .form-submit {
+            text-align: center;
+        }
+        .form-submit button {
+            background-color: #1E5AA7;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-submit button:hover {
+            background-color: #164a87;
+        }
+        p.form-note {
+            text-align: center;
+            color: #999;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #1E5AA7;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+        .toggle-form {
+            display: none;
+        }
+        section {
+            padding: 30px 0;
+        }
+        #footer {
+            background: #007b5e !important;
+            padding: 30px 0;
+            color: #ffffff;
+        }
+        #footer h5 {
+            padding-left: 10px;
+            border-left: 3px solid #eeeeee;
+            padding-bottom: 6px;
+            margin-bottom: 20px;
+        }
+        #footer a {
+            color: #ffffff;
+            text-decoration: none !important;
+            background-color: transparent;
+            -webkit-text-decoration-skip: objects;
+        }
+        #footer ul.social li {
+            padding: 3px 0;
+        }
+        #footer ul.social li a i {
+            margin-right: 5px;
+            font-size: 25px;
+            -webkit-transition: .5s all ease;
+            -moz-transition: .5s all ease;
+            transition: .5s all ease;
+        }
+        #footer ul.social li:hover a i {
+            font-size: 30px;
+            margin-top: -10px;
+        }
+        #footer ul.social li a,
+        #footer ul.quick-links li a {
+            color: #ffffff;
+        }
+        #footer ul.social li a:hover {
+            color: #eeeeee;
+        }
+        #footer ul.quick-links li {
+            padding: 3px 0;
+        }
+        #footer ul.quick-links li:hover {
+            padding: 3px 0;
+            margin-left: 5px;
+            font-weight: 700;
+        }
+        #footer ul.quick-links li a i {
+            margin-right: 5px;
+        }
+        #footer ul.quick-links li:hover a i {
+            font-weight: 700;
+        }
+        @media (max-width: 767px) {
+            #footer h5 {
+                padding-left: 0;
+                border-left: transparent;
+                padding-bottom: 0px;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <ul class="nav justify-content-center">
+                <li class="nav-item"><a class="nav-link" href="Acceuil.html">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="Infos.html">Infos</a></li>
+                <li class="nav-item"><a class="nav-link" href="Services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="Applications.html">Applications</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="form-container">
+        <h1>Demande de devis</h1>
+        <p class="form-note">(Les champs avec * sont obligatoires)</p>
+        <form action="send-email.php" method="POST">
+            <div class="form-group">
+                <label for="type-devis">Type devis *</label>
+                <select id="type-devis" name="type-devis" required>
+                    <option value="">Sélectionner</option>
+                    <option value="Plan de situation">Plan de situation</option>
+                    <option value="Plan Coté">Plan Coté</option>
+                    <option value="Plan de délimitation">Plan de délimitation</option>
+                    <option value="Implantation/Rétablissement des bornes">Implantation/Rétablissement des bornes</option>
+                    <option value="Suivie de chantier">Suivie de chantier</option>
+                    <option value="Calcul de Cubature">Calcul de Cubature</option>
+                    <option value="Travaux Cadastraux">Travaux Cadastraux</option>
+                    <option value="Expertise immobilière">Expertise immobilière</option>
+                    <option value="Consultation foncière">Consultation foncière</option>
+                    <option value="Photogrammétrie">Photogrammétrie</option>
+                    <option value="Géodésie">Géodésie</option>
+                    <option value="Cartographie">Cartographie</option>
+                    <option value="SIG">SIG</option>
+                    <option value="WebMapping">WebMapping</option>
+                    <option value="Autre">Autre</option>
+                </select>
+            </div>
+            <div class="form-group form-radio-group">
+                <label>Vous êtes *</label>
+                <label><input type="radio" name="vous-etes" value="societe" required onclick="toggleForm()"> Société</label>
+                <label><input type="radio" name="vous-etes" value="personne-physique" onclick="toggleForm()"> Personne physique</label>
+            </div>
+            <div id="societe-form" class="toggle-form">
+                <h2>Informations de société</h2>
+                <div class="form-group form-group-half">
+                    <label for="nom-societe">Nom Sté *</label>
+                    <input type="text" id="nom-societe" name="nom-societe" required>
+                </div>
+                <div class="form-group form-group-half">
+                    <label for="siege">Siège *</label>
+                    <input type="text" id="siege" name="siege" required>
+                </div>
+                <div class="form-group form-group-half">
+                    <label for="ice">ICE *</label>
+                    <input type="text" id="ice" name="ice" required>
+                </div>
+                <div class="form-group form-group-half">
+                    <label for="nom-demandeur">Nom du demandeur *</label>
+                    <input type="text" id="nom-demandeur" name="nom-demandeur" required>
+                </div>
+                <div class="form-group form-group-half">
+                    <label for="telephone">Téléphone *</label>
+                    <input type="text" id="telephone" name="telephone" required>
+                </div>
+                <div class="form-group form-group-half">
+                    <label for="email">E-mail *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </div>
+            <div id="personne-physique-form" class="toggle-form">
+                <h2>Informations de personne physique</h2>
+                <div class="form-group form-group-half">
+                    <label for="nom">Nom *</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+                <div class="form-group form-group-half">
+                    <label for="prenom">Prénom *</label>
+                    <input type="text" id="prenom" name="prenom" required>
+                </div>
+                <div class="form-group form-group-half">
+                    <label for="CIN">CIN *</label>
+                    <input type="text" id="CIN" name="CIN" required>
+                </div>
+                <div class="form-group form-group-half">
+                    <label for="telephone">Téléphone *</label>
+                    <input type="text" id="telephone-physique" name="telephone" required>
+                </div>
+                <div class="form-group form-group-half">
+                    <label for="email">E-mail *</label>
+                    <input type="email" id="email-physique" name="email" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description-besoin">Décrire votre besoin *</label>
+                <textarea id="description-besoin" name="description-besoin" rows="4" required></textarea>
+            </div>
+            <div class="form-group form-submit">
+                <button type="submit">Envoyer</button>
+            </div>
+        </form>
+    </div>
+    <section id="footer">
+        <div class="container">
+            <div class="row text-center text-xs-center text-sm-left text-md-left">
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <h5>Sommaire </h5>
+                    <ul class="list-unstyled quick-links">
+                        <li><a href="Acceuil.html"><i class="fa fa-angle-double-right"></i>Acceuil</a></li>
+                        <li><a href="Infos.html"><i class="fa fa-angle-double-right"></i>Infos</a></li>
+                        <li><a href="Services.html"><i class="fa fa-angle-double-right"></i>Services</a></li>
+                        <li><a href="Applications.html"><i class="fa fa-angle-double-right"></i>Aplications</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-xs-12 col-sm-4 col-md-4 text-white">
+                    <h5>Quick links</h5>
+                    <ul class="list-unstyled quick-links">
+                       <li><i class="fa fa-map-marker f" ></i>Rue El Zellaqa n°20A Al Hoceima 32000</a></li>
+                        <li><i class="fa fa-phone"></i>0708966094 / 0808578437</a></li>
+                        <li><i class="fa fa-envelope"></i>microtopographie@gmail.com</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4  text-white">
+                    <h5>À propos</h5>
+                   <p> Sociétés spécialisées dans la collecte, la mesure et la représentation des données géospatiales.</p>
+                   <p> Création : 2023 </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                    <ul class="list-unstyled list-inline social text-center">
+                        <li class="list-inline-item"><a href="https://www.facebook.com/microtopographie"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href=""><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/microtopographie"><i class="fa fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="https://ma.linkedin.com/company/microtopographie2"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                    <p class="h6">© All right Reversed.</p>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </section>
+    <script>
+        function toggleForm() {
+            const societeForm = document.getElementById('societe-form');
+            const personnePhysiqueForm = document.getElementById('personne-physique-form');
+            const isSociete = document.querySelector('input[name="vous-etes"]:checked').value === 'societe';
+
+            societeForm.style.display = isSociete ? 'block' : 'none';
+            personnePhysiqueForm.style.display = isSociete ? 'none' : 'block';
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

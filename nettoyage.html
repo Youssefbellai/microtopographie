@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload .dat File</title>
+</head>
+<body>
+    <h2>Upload .dat File for Cleaning</h2>
+    <form action="clean.php" method="post" enctype="multipart/form-data">
+        <label for="datFile">Select .dat File:</label>
+        <input type="file" name="datFile" id="datFile" accept=".dat"><br><br>
+        <input type="submit" value="Upload and Clean" name="submit">
+    </form>
+</body>
+</html>

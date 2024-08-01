@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande de devis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+        }
+        h1 {
+            text-align: center;
+            color: #1E5AA7;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], textarea, select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-radio-group {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .form-radio-group label {
+            margin-right: 15px;
+        }
+        .form-radio-group input {
+            margin-right: 5px;
+        }
+        .form-group-half {
+            width: 48%;
+            display: inline-block;
+        }
+        .form-group-half + .form-group-half {
+            margin-left: 4%;
+        }
+        .form-submit {
+            text-align: center;
+        }
+        .form-submit button {
+            background-color: #1E5AA7;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-submit button:hover {
+            background-color: #164a87;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Demande de devis</h1>
+        <p style="text-align: center; color: #999;">(Les champs avec * sont obligatoires)</p>
+        <form>
+            <div class="form-group">
+                <label for="type-devis">Type devis *</label>
+                <select id="type-devis" name="type-devis" required>
+                    <option value="">Sélectionner</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <div class="form-group form-radio-group">
+                <label>Vous êtes *</label>
+                <label><input type="radio" name="vous-etes" value="societe" required> Société</label>
+                <label><input type="radio" name="vous-etes" value="personne-physique"> Personne physique</label>
+            </div>
+            <div class="form-group">
+                <h2>Informations de société</h2>
+            </div>
+            <div class="form-group form-group-half">
+                <label for="nom-societe">Nom Sté *</label>
+                <input type="text" id="nom-societe" name="nom-societe" required>
+            </div>
+            <div class="form-group form-group-half">
+                <label for="siege">Siège *</label>
+                <input type="text" id="siege" name="siege" required>
+            </div>
+            <div class="form-group form-group-half">
+                <label for="ice">ICE *</label>
+                <input type="text" id="ice" name="ice" required>
+            </div>
+            <div class="form-group form-group-half">
+                <label for="nom-demandeur">Nom du demandeur *</label>
+                <input type="text" id="nom-demandeur" name="nom-demandeur" required>
+            </div>
+            <div class="form-group form-group-half">
+                <label for="telephone">Téléphone *</label>
+                <input type="text" id="telephone" name="telephone" required>
+            </div>
+            <div class="form-group form-group-half">
+                <label for="email">E-mail *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="description-besoin">Décrire votre besoin *</label>
+                <textarea id="description-besoin" name="description-besoin" rows="4" required></textarea>
+            </div>
+            <div class="form-group form-submit">
+                <button type="submit">Envoyer</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
